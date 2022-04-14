@@ -42,7 +42,7 @@ export const typeOrmConfig: TypeOrmModuleOptions = {
 	port: env.num('RDS_PORT', 3306),
 	username: env.str('RDS_USERNAME', 'root'),
 	password: env.str('RDS_PASSWORD', ''),
-	database: env.str('RDS_DATABASE', 'url-shortner'),
+	database: env.str('RDS_DATABASE', 'url-shortener'),
 	synchronize: env.bool('TYPEORM_SYNC', environment === 'development' ? true : false),
 	entities: [__dirname + '/../**/*.entity.js']
 	// migrations: ['dist/migrations/*{.ts,.js}'],
