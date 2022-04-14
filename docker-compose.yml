@@ -57,11 +57,10 @@ services:
             target: production
             dockerfile: ./Dockerfile
         image: url-shortener-prod-service:latest
-        container_name: url-shortener-prod-service
         command: npm run start:prod
         restart: unless-stopped
         ports:
-            - 3000:3000
+            - '3000-3003:3000'
         networks:
             - backend
         depends_on:
