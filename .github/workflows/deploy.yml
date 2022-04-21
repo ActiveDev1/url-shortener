@@ -27,4 +27,4 @@ jobs:
               id: docker_build
               with:
                   push: true
-                  tags: ActiveDev1/url-shortener:latest
+                  tags: activedev007/url-shortener:latest
