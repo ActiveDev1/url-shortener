@@ -6,7 +6,10 @@ import { CreateShortUrlDto } from './dtos/create-url.dto'
 import { UrlService } from './url.service'
 import { FastifyReply } from 'fastify'
 import { GetSlugDto } from './dtos/get-slug.dto'
+import { ApiBearerAuth, ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger'
 
+@ApiBearerAuth()
+@ApiTags('Url')
 @Controller('')
 export class UrlController {
 	constructor(private urlService: UrlService) {}
@@ -25,6 +28,8 @@ export class UrlController {
 
 	@Get('/user/urls')
 	@UseGuards(AuthGuard())
+	@ApiOperation({ summary: 'Create cat' })
+	@ApiResponse({ status: 403, description: 'Forbidden.' })
 	async getUserUrls(@GetUser() user: User) {
 		return await this.urlService.getUserUrls(user.id)
 	}
